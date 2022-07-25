@@ -272,14 +272,14 @@ class GPIOBase(object):
             f = open('/sys/class/gpio/gpio%d/value' % linux_pin, 'r+')
             self.gpio_handlers[linux_pin] = f
         except:
-            print "Failed opening digital value file for pin %d" % linux_pin
+            print("Failed opening digital value file for pin %d" % linux_pin)
 
     def _open_analog_handler(self, linux_pin, adc):
         try:
             f = open('/sys/bus/iio/devices/iio:device%d/in_voltage%d_raw' % (self.adc_iio_device, adc), 'r+')
             self.gpio_handlers[linux_pin] = f
         except:
-            print "Failed opening analog value file for pin %d" % linux_pin
+            print ("Failed opening analog value file for pin %d" % linux_pin)
 
     def _write_value(self, linux_pin, state):
         value = 1
@@ -338,7 +338,7 @@ class GPIOBase(object):
     def __debug(self, func_name, cmd):
         if self.debug:
             now = datetime.datetime.now().strftime("%B %d %I:%M:%S")
-            print '{0} {1: <20}{2}'.format(now, func_name + ':', cmd)
+            print('{0} {1: <20}{2}'.format(now, func_name + ':', cmd))
 
     def _exec_cmd(self, caller, command):
         self.__debug(caller, command)

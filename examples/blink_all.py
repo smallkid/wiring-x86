@@ -28,11 +28,11 @@ state = gpio.HIGH
 pins = 20
 
 # Set all pins to be used as output GPIO pins.
-print 'Setting up all pins...'
+print('Setting up all pins...')
 for pin in range(0, pins):
     gpio.pinMode(pin, gpio.OUTPUT)
 
-print 'Blinking all pins now...'
+print('Blinking all pins now...')
 try:
     while(True):
         for pin in range(0, pins):
@@ -48,7 +48,7 @@ try:
 # When you get tired of seeing the led blinking kill the loop with Ctrl-C.
 except KeyboardInterrupt:
     # Leave all leds turned off.
-    print '\nCleaning up...'
+    print('\nCleaning up...')
     for pin in range(0, pins):
         gpio.digitalWrite(pin, gpio.LOW)
 

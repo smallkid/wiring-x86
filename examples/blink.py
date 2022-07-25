@@ -19,19 +19,19 @@
 import time
 
 # Import the GPIOEdison class from the wiringx86 module.
-from wiringx86 import GPIOEdison as GPIO
+from wiringx86 import GPIOGalileoGen2 as GPIO
 
 # Create a new instance of the GPIOEdison class.
 # Setting debug=True gives information about the interaction with sysfs.
 gpio = GPIO(debug=False)
-pin = 13
+pin = 4
 state = gpio.HIGH
 
 # Set pin 13 to be used as an output GPIO pin.
-print 'Setting up pin %d' % pin
+print ('Setting up pin %d' % pin)
 gpio.pinMode(pin, gpio.OUTPUT)
 
-print 'Blinking pin %d now...' % pin
+print('Blinking pin %d now...' % pin)
 try:
     while(True):
         # Write a state to the pin. ON or OFF.
@@ -46,7 +46,7 @@ try:
 # When you get tired of seeing the led blinking kill the loop with Ctrl-C.
 except KeyboardInterrupt:
     # Leave the led turned off.
-    print '\nCleaning up...'
+    print('\nCleaning up...')
     gpio.digitalWrite(pin, gpio.LOW)
 
     # Do a general cleanup. Calling this function is not mandatory.

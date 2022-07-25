@@ -29,10 +29,10 @@ brightness = 0
 fadeAmount = 5
 
 # Set pin 3 to be used as a PWM pin.
-print 'Setting up pin %d' % pin
+print('Setting up pin %d' % pin)
 gpio.pinMode(pin, gpio.PWM)
 
-print 'Fading pin %d now...' % pin
+print('Fading pin %d now...' % pin)
 try:
     while(True):
         # Write brightness to the pin. The value must be between 0 and 255.
@@ -52,7 +52,7 @@ try:
 # When you get tired of seeing the led fading kill the loop with Ctrl-C.
 except KeyboardInterrupt:
     # Leave the led turned off.
-    print '\nCleaning up...'
+    print('\nCleaning up...')
     gpio.analogWrite(pin, 0)
 
     # Do a general cleanup. Calling this function is not mandatory.

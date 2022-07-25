@@ -24,7 +24,7 @@ gpio = GPIO(debug=False)
 pin = 13
 button = 2
 
-print 'Setting up pins %d and %d...' % (pin, button)
+print('Setting up pins %d and %d...' % (pin, button))
 
 # Set pin 13 to be used as an output GPIO pin.
 gpio.pinMode(pin, gpio.OUTPUT)
@@ -32,7 +32,7 @@ gpio.pinMode(pin, gpio.OUTPUT)
 # Set pin 2 to be used as an input GPIO pin.
 gpio.pinMode(button, gpio.INPUT)
 
-print 'Reading from pin %d now...' % button
+print('Reading from pin %d now...' % button)
 try:
     while(True):
         # Read the state of the button
@@ -49,7 +49,7 @@ try:
 # Kill the loop with Ctrl-C.
 except KeyboardInterrupt:
     # Leave the led turned off.
-    print '\nCleaning up...'
+    print('\nCleaning up...')
     gpio.digitalWrite(pin, gpio.LOW)
 
     # Do a general cleanup. Calling this function is not mandatory.
